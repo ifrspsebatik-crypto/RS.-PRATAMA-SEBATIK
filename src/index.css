@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    color-scheme: light;
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Ledger table styling */
+.ledger-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 12px;
+}
+
+.ledger-table th,
+.ledger-table td {
+  border-right: 1px solid #cbd5e1;
+  border-bottom: 1px solid #cbd5e1;
+  padding: 3px 6px;
+  white-space: nowrap;
+}
+
+.ledger-table thead th {
+  background-color: #0f766e;
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  height: 28px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.ledger-table thead tr + tr th {
+  top: 28px;
+}
+
+.ledger-table tbody td {
+  background-color: #ffffff;
+}
+
+.ledger-table tbody tr:hover td {
+  background-color: #f8fafc;
+}
+
+.ledger-table .sticky-col-1,
+.ledger-table .sticky-col-2,
+.ledger-table .sticky-col-3,
+.ledger-table .sticky-col-4 {
+  position: sticky;
+  z-index: 2;
+}
+
+.ledger-table thead .sticky-col-1,
+.ledger-table thead .sticky-col-2,
+.ledger-table thead .sticky-col-3,
+.ledger-table thead .sticky-col-4 {
+  z-index: 5;
+}
+
+.ledger-table .sticky-col-1 {
+  left: 0;
+  width: 40px;
+  min-width: 40px;
+}
+
+.ledger-table .sticky-col-2 {
+  left: 40px;
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ledger-table .sticky-col-3 {
+  left: 280px;
+  width: 74px;
+  min-width: 74px;
+}
+
+.ledger-table .sticky-col-4 {
+  left: 354px;
+  width: 76px;
+  min-width: 76px;
+  box-shadow: 2px 0 0 #94a3b8;
+}
+
+.ledger-table tbody tr.row-neg td {
+  background-color: #fee2e2;
+}
+
+.ledger-table tbody tr.row-neg:hover td {
+  background-color: #fecaca;
+}
+
+.ledger-table tbody tr.row-low td {
+  background-color: #fef3c7;
+}
+
+.ledger-table tbody tr.row-low:hover td {
+  background-color: #fde68a;
+}
+
+.ledger-table tbody tr.row-cat td {
+  background-color: #f0fdfa;
+  color: #115e59;
+  font-weight: 700;
+}
+
+.ledger-table tbody tr.row-cat:hover td {
+  background-color: #f0fdfa;
+}
+
+.ledger-input {
+  width: 48px;
+  text-align: right;
+  border: 1px solid #e2e8f0;
+  padding: 2px 4px;
+  border-radius: 4px;
+  background-color: transparent;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+}
+
+.ledger-input:focus {
+  outline: 2px solid #0d9488;
+  outline-offset: -1px;
+  background-color: #ffffff;
+}
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+  }
+
+  .ledger-scroll-container {
+    overflow: visible !important;
+    max-height: none !important;
+    border: none !important;
+  }
+
+  .ledger-table .sticky-col-1,
+  .ledger-table .sticky-col-2,
+  .ledger-table .sticky-col-3,
+  .ledger-table .sticky-col-4,
+  .ledger-table thead th {
+    position: static !important;
+    box-shadow: none !important;
+  }
+
+  @page {
+    size: A3 landscape;
+    margin: 8mm;
+  }
+}

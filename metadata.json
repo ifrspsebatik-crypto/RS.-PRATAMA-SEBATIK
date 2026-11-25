@@ -1,0 +1,6 @@
+{
+  "name": "Mutasi Obat – Apotek RS Pratama Sebatik",
+  "description": "Sistem pencatatan harian dan pelaporan mutasi obat bulanan Apotek Rumah Sakit Pratama Sebatik.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
